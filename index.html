@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANTI.V Pro - Rasmiy Sayt</title>
+    <style>
+        /* DIZAYN (CSS) */
+        body {
+            background-color: #0d1117;
+            color: #00ff41;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            background: #161b22;
+            padding: 40px;
+            border-radius: 15px;
+            border: 2px solid #00ff41;
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.2);
+            text-align: center;
+            width: 350px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        p {
+            font-size: 14px;
+            color: #8b949e;
+            margin-bottom: 25px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            background: #0d1117;
+            border: 1px solid #30363d;
+            color: #00ff41;
+            border-radius: 5px;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #00ff41;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #00ff41;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #00cc33;
+            transform: scale(1.02);
+        }
+
+        .footer-text {
+            margin-top: 20px;
+            font-size: 10px;
+            color: #484f58;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🛡️ ANTI.V PRO</h1>
+        <p>Tizimni himoya qilish uchun ma'lumotlarni kiriting</p>
+        
+        <input type="text" id="userName" placeholder="Foydalanuvchi nomi">
+        <input type="email" id="userEmail" placeholder="Email manzilingiz">
+        
+        <button onclick="handleDownload()">ILOVANI YUKLASH</button>
+        
+        <div class="footer-text">Secure Connection Active | v1.0.4</div>
+    </div>
+
+    <script>
+        /* ISHLASH MANTIQI (JavaScript) */
+        function handleDownload() {
+            const name = document.getElementById('userName').value;
+            const email = document.getElementById('userEmail').value;
+
+            if (name.length > 2 && email.includes('@')) {
+                alert("Rahmat, " + name + "! Ma'lumotlar qabul qilindi. Yuklash sahifasiga yo'naltirilmoqdasiz...");
+                
+                // Bu yerga o'z dasturingizning yuklanish linkini qo'yishingiz mumkin
+                window.location.href = "https://github.com/yjasur039-cyber/ANTI.V/releases";
+            } else {
+                alert("Iltimos, ism va emailni to'g'ri kiriting!");
+            }
+        }
+    </script>
+
+</body>
+</html>
