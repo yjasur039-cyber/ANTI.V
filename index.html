@@ -3,112 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANTI.V Pro - Rasmiy Sayt</title>
+    <title>ANTI.V | Official Software Distribution</title>
     <style>
-        /* DIZAYN (CSS) */
+        /* ASOSIY RANG VA SHRIFTLAR */
+        :root {
+            --primary-blue: #1a73e8; /* Google ko'k rangi */
+            --bg-light: #f8f9fa;
+            --text-dark: #202124;
+            --border-color: #dadce0;
+        }
+
         body {
-            background-color: #0d1117;
-            color: #00ff41;
-            font-family: 'Courier New', Courier, monospace;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
-            overflow: hidden;
         }
 
-        .container {
-            background: #161b22;
+        /* OQ KORPORATIV KARTA */
+        .main-card {
+            background: #ffffff;
             padding: 40px;
-            border-radius: 15px;
-            border: 2px solid #00ff41;
-            box-shadow: 0 0 30px rgba(0, 255, 65, 0.2);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            width: 100%;
+            max-width: 400px;
             text-align: center;
-            width: 350px;
         }
 
-        h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .header-logo {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 8px;
         }
 
-        p {
+        h2 {
+            font-size: 22px;
+            font-weight: 500;
+            margin: 10px 0;
+            color: #3c4043;
+        }
+
+        p.info-text {
+            color: #5f6368;
             font-size: 14px;
-            color: #8b949e;
-            margin-bottom: 25px;
+            line-height: 1.4;
+            margin-bottom: 30px;
+        }
+
+        /* INPUTLAR (OQ FONDAGI TOZA DIZAYN) */
+        .field-container {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #3c4043;
         }
 
         input {
             width: 100%;
             padding: 12px;
-            margin-bottom: 15px;
-            background: #0d1117;
-            border: 1px solid #30363d;
-            color: #00ff41;
-            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 15px;
             box-sizing: border-box;
             outline: none;
+            transition: border-color 0.2s;
         }
 
         input:focus {
-            border-color: #00ff41;
+            border: 2px solid var(--primary-blue);
+            padding: 11px; /* Border kengayganda input qimirlamasligi uchun */
         }
 
+        /* RASMIY KO'K TUGMA */
         button {
             width: 100%;
-            padding: 15px;
-            background: #00ff41;
-            color: #000;
+            background-color: var(--primary-blue);
+            color: white;
             border: none;
-            border-radius: 5px;
-            font-weight: bold;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 15px;
+            font-weight: 600;
             cursor: pointer;
-            font-size: 16px;
-            transition: 0.3s;
+            transition: background-color 0.2s;
+            margin-top: 10px;
         }
 
         button:hover {
-            background: #00cc33;
-            transform: scale(1.02);
+            background-color: #1765cc;
         }
 
-        .footer-text {
+        /* YUKLANISH HOLATI */
+        #loadingArea {
+            display: none;
             margin-top: 20px;
-            font-size: 10px;
-            color: #484f58;
+        }
+
+        .progress-circle {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary-blue);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .footer-links {
+            margin-top: 40px;
+            font-size: 12px;
+            color: #70757a;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>🛡️ ANTI.V PRO</h1>
-        <p>Tizimni himoya qilish uchun ma'lumotlarni kiriting</p>
-        
-        <input type="text" id="userName" placeholder="Foydalanuvchi nomi">
-        <input type="email" id="userEmail" placeholder="Email manzilingiz">
-        
-        <button onclick="handleDownload()">ILOVANI YUKLASH</button>
-        
-        <div class="footer-text">Secure Connection Active | v1.0.4</div>
+    <div class="main-card">
+        <div class="header-logo">ANTI.V</div>
+        <h2>Dasturni yuklab olish</h2>
+        <p class="info-text">Davom etish uchun litsenziya egasi ma'lumotlarini kiriting. Bu xavfsiz va rasmiy tekshiruv jarayonidir.</p>
+
+        <div id="inputForm">
+            <div class="field-container">
+                <label>Foydalanuvchi ismi</label>
+                <input type="text" id="userName" placeholder="Ismingiz">
+            </div>
+
+            <div class="field-container">
+                <label>Elektron pochta</label>
+                <input type="email" id="userEmail" placeholder="example@gmail.com">
+            </div>
+
+            <button onclick="startValidation()">Keyingi qadam</button>
+        </div>
+
+        <div id="loadingArea">
+            <div class="progress-circle"></div>
+            <p style="font-size: 14px; color: #1a73e8;">Ma'lumotlar tekshirilmoqda...</p>
+        </div>
+
+        <div class="footer-links">
+            Maxfiylik siyosati &nbsp; • &nbsp; Hizmat ko'rsatish shartlari
+        </div>
     </div>
 
     <script>
-        /* ISHLASH MANTIQI (JavaScript) */
-        function handleDownload() {
+        function startValidation() {
             const name = document.getElementById('userName').value;
             const email = document.getElementById('userEmail').value;
 
-            if (name.length > 2 && email.includes('@')) {
-                alert("Rahmat, " + name + "! Ma'lumotlar qabul qilindi. Yuklash sahifasiga yo'naltirilmoqdasiz...");
-                
-                // Bu yerga o'z dasturingizning yuklanish linkini qo'yishingiz mumkin
-                window.location.href = "https://github.com/yjasur039-cyber/ANTI.V/releases";
+            if(name.length > 2 && email.includes('@')) {
+                document.getElementById('inputForm').style.display = 'none';
+                document.getElementById('loadingArea').style.display = 'block';
+
+                // Simulyatsiya (Xuddi rasmiy server tekshirayotgandek)
+                setTimeout(() => {
+                    alert("Tasdiqlandi! Siz rasmiy yuklash sahifasiga yo'naltirilyapsiz.");
+                    window.location.href = "https://github.com/yjasur039-cyber/ANTI.V/releases";
+                }, 3000);
             } else {
-                alert("Iltimos, ism va emailni to'g'ri kiriting!");
+                alert("Iltimos, barcha maydonlarni to'g'ri to'ldiring.");
             }
         }
     </script>
